@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{B0570F6C-7AFC-421D-BEFB-91B5B95CF9E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TaxJar", "TaxJar", "{FB9E6EC0-E0B4-494A-9268-E84FABDD3FD1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kjaneb.Commerce.Plugin.Tax.Framework", "Framework\Kjaneb.Commerce.Plugin.Tax.Framework.csproj", "{12E8D2B4-D9BC-444D-AE6E-26CBA4826467}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kjaneb.Commerce.Plugin.Tax.TaxJar", "TaxJar\Kjaneb.Commerce.Plugin.Tax.TaxJar.csproj", "{F9C5B12D-CF67-4CD1-8697-0C6F0932E237}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12E8D2B4-D9BC-444D-AE6E-26CBA4826467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E8D2B4-D9BC-444D-AE6E-26CBA4826467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E8D2B4-D9BC-444D-AE6E-26CBA4826467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E8D2B4-D9BC-444D-AE6E-26CBA4826467}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9C5B12D-CF67-4CD1-8697-0C6F0932E237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9C5B12D-CF67-4CD1-8697-0C6F0932E237}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9C5B12D-CF67-4CD1-8697-0C6F0932E237}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9C5B12D-CF67-4CD1-8697-0C6F0932E237}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{12E8D2B4-D9BC-444D-AE6E-26CBA4826467} = {B0570F6C-7AFC-421D-BEFB-91B5B95CF9E1}
+		{F9C5B12D-CF67-4CD1-8697-0C6F0932E237} = {FB9E6EC0-E0B4-494A-9268-E84FABDD3FD1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DB80325C-FC64-4973-B1BB-B5E0FC879E02}
+	EndGlobalSection
+EndGlobal

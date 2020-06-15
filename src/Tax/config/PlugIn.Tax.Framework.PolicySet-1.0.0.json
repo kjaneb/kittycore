@@ -1,0 +1,34 @@
+{
+  "$type": "Sitecore.Commerce.Core.PolicySet, Sitecore.Commerce.Core",
+  "Id": "Entity-PolicySet-TaxFrameworkPolicySet",
+  "Version": 1,
+  "IsPersisted": false,
+  "Name": "TaxFrameworkPolicySet",
+  "Policies": {
+    "$type": "System.Collections.Generic.List`1[[Sitecore.Commerce.Core.Policy, Sitecore.Commerce.Core]], mscorlib",
+    "$values": [
+      {
+        "$type": "Kjaneb.Commerce.Plugin.Tax.Framework.Policies.TaxFrameworkPolicy, Kjaneb.Commerce.Plugin.Tax.Framework",
+        "NexusAddresses": {
+          "$type": "System.Collections.Generic.List`1[[Kjaneb.Commerce.Plugin.Tax.Framework.Models.NexusAddress, Kjaneb.Commerce.Plugin.Tax.Framework]], mscorlib",
+          "$values": [
+            {
+              "$type": "Kjaneb.Commerce.Plugin.Tax.Framework.Models.NexusAddress, Kjaneb.Commerce.Plugin.Tax.Framework",
+              "Address": "101 California Street",
+              "City": "San Francisco",
+              "State": "CA",
+              "Zip": "94111",
+              "Country": "US"
+            }
+          ]
+        },
+        "FulfillmentDiscountActions": {
+          "$type": "System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib",
+          "$values": [
+            "CartFreeShippingAction"
+          ]
+        }
+      }
+    ]
+  }
+}
