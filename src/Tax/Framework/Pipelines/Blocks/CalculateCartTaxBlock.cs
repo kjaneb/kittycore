@@ -1,5 +1,4 @@
-﻿using Kjaneb.Commerce.Plugin.Tax.Framework.Components;
-using Kjaneb.Commerce.Plugin.Tax.Framework.Models;
+﻿using Kjaneb.Commerce.Plugin.Tax.Framework.Models;
 using Kjaneb.Commerce.Plugin.Tax.Framework.Policies;
 using Microsoft.Extensions.Logging;
 using Sitecore.Commerce.Core;
