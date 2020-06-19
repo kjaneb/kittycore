@@ -19,6 +19,7 @@ namespace Kjaneb.Commerce.Plugin.Tax.TaxJar
                 .ConfigurePipeline<ICallExternalServiceToCalculateTaxPipeline>(builder => builder
                         .Add<CalculateTaxWithTaxJarBlock>()
                 , "main", 100)
+                .ConfigurePipeline<IRunningPluginsPipeline>(c => { c.Add<Tax.TaxJar.Pipelines.Blocks.RegisteredPluginBlock>().After<RunningPluginsBlock>(); })
             );
             services.RegisterAllCommands(assembly);
         }

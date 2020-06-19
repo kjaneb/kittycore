@@ -29,6 +29,7 @@ namespace Kjaneb.Commerce.Plugin.Tax.Framework
                         .Remove<Sitecore.Commerce.Plugin.Tax.CalculateCartTaxBlock>()
                         .Add<Pipelines.Blocks.CalculateCartTaxBlock>().Before<CalculateCartTotalsBlock>()
                     , "main", 5000)
+                .ConfigurePipeline<IRunningPluginsPipeline>(c => { c.Add<Tax.Framework.Pipelines.Blocks.RegisteredPluginBlock>().After<RunningPluginsBlock>(); })
             );
             services.RegisterAllCommands(assembly);
         }
