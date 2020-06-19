@@ -25,10 +25,6 @@
     <PackageReference Include="TaxJar" Version="3.3.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="ConfigureSitecore.cs" />
-  </ItemGroup>
-
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>

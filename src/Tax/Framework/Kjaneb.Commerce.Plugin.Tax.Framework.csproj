@@ -22,10 +22,6 @@
     <PackageReference Include="Sitecore.Commerce.Plugin.Tax" Version="5.0.20" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="ConfigureSitecore.cs" />
-  </ItemGroup>
-
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
