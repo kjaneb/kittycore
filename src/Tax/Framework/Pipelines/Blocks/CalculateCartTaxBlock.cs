@@ -103,12 +103,12 @@ namespace Kjaneb.Commerce.Plugin.Tax.Framework.Pipelines.Blocks
                     var shippingDiscounts = arg.Adjustments.Where(x => x.AdjustmentType == context.GetPolicy<KnownCartAdjustmentTypesPolicy>().Discount && taxJarPolicy.FulfillmentDiscountActions.Contains(x.AwardingBlock))
                         .Aggregate(Decimal.Zero, (current, adjustment) => current + adjustment.Adjustment.Amount);
 
-                    model.Shipping = shipping + shippingDiscounts;
+                    model.Shipping = (shipping + shippingDiscounts);
 
                     var nexusAddresses = await _commerceCommander.Pipeline<IPopulateNexusAddressPipeline>().Run(arg, context);
                     model.NexusAddresses = nexusAddresses.ToList();
 
-                    model.Amount = arg.Totals.GrandTotal.Amount - shipping;
+                    model.Amount = subTotal - shipping;
                     model.Shipping = shipping;
 
                     if (model.Amount > 0)
