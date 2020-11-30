@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
   <metadata>
-    <id>$id$</id>
+    <id>Kjaneb.Commerce.Plugin.Tax.Framework</id>
     <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <title>Kjaneb Sitecore Experience Commerce Tax Framework</title>
+    <authors>Kelly Brennan</authors>
+    <owners>Kelly Brennan</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>http://project_url_here_or_delete_this_line/</projectUrl>
     <iconUrl>http://icon_url_here_or_delete_this_line/</iconUrl>
-    <description>$description$</description>
+    <description>Tax Framework</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
     <copyright>Copyright 2020</copyright>
-    <tags>Tag1 Tag2</tags>
+    <tags>Sitecore ExperienceCommerce</tags>
   </metadata>
 </package>
