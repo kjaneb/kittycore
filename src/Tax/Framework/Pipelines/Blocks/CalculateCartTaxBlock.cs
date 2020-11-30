@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Kjaneb.Commerce.Plugin.Tax.Framework.Pipelines.Blocks
 {
-    public class CalculateCartTaxBlock : PipelineBlock<Cart, Cart, CommercePipelineExecutionContext>
+    public class CalculateCartTaxBlock : AsyncPipelineBlock<Cart, Cart, CommercePipelineExecutionContext>
     {
         private CommerceCommander _commerceCommander;
 
@@ -23,7 +23,7 @@ namespace Kjaneb.Commerce.Plugin.Tax.Framework.Pipelines.Blocks
             _commerceCommander = commerceCommander;
         }
 
-        public override async Task<Cart> Run(Cart arg, CommercePipelineExecutionContext context)
+        public override async Task<Cart> RunAsync(Cart arg, CommercePipelineExecutionContext context)
         {
             Condition.Requires(arg).IsNotNull(Name + ": The cart can not be null");
             //Only calculate tax if there is a shipping address provided
@@ -105,7 +105,7 @@ namespace Kjaneb.Commerce.Plugin.Tax.Framework.Pipelines.Blocks
 
                     model.Shipping = (shipping + shippingDiscounts);
 
-                    var nexusAddresses = await _commerceCommander.Pipeline<IPopulateNexusAddressPipeline>().Run(arg, context);
+                    var nexusAddresses = await _commerceCommander.Pipeline<IPopulateNexusAddressPipeline>().RunAsync(arg, context);
                     model.NexusAddresses = nexusAddresses.ToList();
 
                     model.Amount = subTotal - shipping;
@@ -118,7 +118,7 @@ namespace Kjaneb.Commerce.Plugin.Tax.Framework.Pipelines.Blocks
                             " Line item total: " + subTotal);
 
                         var result = await _commerceCommander.Pipeline<ICallExternalServiceToCalculateTaxPipeline>()
-                            .Run(model, context);
+                            .RunAsync(model, context);
 
                         if (result != null)
                         {
@@ -136,10 +136,13 @@ namespace Kjaneb.Commerce.Plugin.Tax.Framework.Pipelines.Blocks
                             awardedAdjustment.IsTaxable = (false);
                             arg.Adjustments.Add(awardedAdjustment);
 
-                            arg.Adjustments
+                            var allAdjustments = arg.Adjustments
                                 .Where(p => p.AdjustmentType ==
-                                            context.GetPolicy<KnownCartAdjustmentTypesPolicy>().Fulfillment)
-                                .ForEach(x => x.IsTaxable = result.IsShippingTaxable);
+                                            context.GetPolicy<KnownCartAdjustmentTypesPolicy>().Fulfillment);
+                            foreach (var adjustment in allAdjustments)
+                            {
+                                adjustment.IsTaxable = result.IsShippingTaxable;
+                            }
                         }
                     }
                 }

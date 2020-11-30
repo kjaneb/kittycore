@@ -11,9 +11,9 @@ using Sitecore.Framework.Pipelines;
 
 namespace Kjaneb.Commerce.Plugin.Tax.Framework.Pipelines.Blocks
 {
-    public class GetNexusAddressFromPolicyBlock : PipelineBlock<Cart, IEnumerable<NexusAddress>, CommercePipelineExecutionContext>
+    public class GetNexusAddressFromPolicyBlock : AsyncPipelineBlock<Cart, IEnumerable<NexusAddress>, CommercePipelineExecutionContext>
     {
-        public override Task<IEnumerable<NexusAddress>> Run(Cart arg, CommercePipelineExecutionContext context)
+        public override Task<IEnumerable<NexusAddress>> RunAsync(Cart arg, CommercePipelineExecutionContext context)
         {
             Condition.Requires(arg).IsNotNull(Name + ": The cart can not be null");
             if (!arg.HasComponent<FulfillmentComponent>())

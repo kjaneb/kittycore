@@ -10,7 +10,7 @@ using Taxjar;
 
 namespace Kjaneb.Commerce.Plugin.Tax.TaxJar.Pipelines.Blocks
 {
-    public class CalculateTaxWithTaxJarBlock : PipelineBlock<TaxableCartModel, TaxBreakdownModel, CommercePipelineExecutionContext>
+    public class CalculateTaxWithTaxJarBlock : AsyncPipelineBlock<TaxableCartModel, TaxBreakdownModel, CommercePipelineExecutionContext>
     {
         private CommerceCommander _commerceCommander;
 
@@ -19,7 +19,7 @@ namespace Kjaneb.Commerce.Plugin.Tax.TaxJar.Pipelines.Blocks
             _commerceCommander = commerceCommander;
         }
 
-        public override Task<TaxBreakdownModel> Run(TaxableCartModel arg, CommercePipelineExecutionContext context)
+        public override Task<TaxBreakdownModel> RunAsync(TaxableCartModel arg, CommercePipelineExecutionContext context)
         {
             var taxJarPolicy = context.GetPolicy<TaxJarPolicy>();
             var client = new TaxjarApi(taxJarPolicy.ApiKey);
