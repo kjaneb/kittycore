@@ -35,7 +35,7 @@ steps:
 - task: VersionDotNetCoreAssemblies@2
   inputs:
     Path: '$(Build.SourcesDirectory)'
-    VersionNumber: '$(PackageVersion)'
+    VersionNumber: '$(PackageVersion).0'
     Injectversion: False
     VersionRegex: '\d+\.\d+\.\d+\.\d+'
     FilenamePattern: '.csproj'
