@@ -17,7 +17,6 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <PropertyGroup>
-    <Version Condition=" '$(BUILD_BUILDNUMBER)' == '' ">1.0.0.0</Version>
-    <Version Condition=" '$(BUILD_BUILDNUMBER)' != '' ">$(BUILD_BUILDNUMBER)</Version>
+    <Version>1.0.0.0</Version>
   </PropertyGroup>
 </Project>
