@@ -23,6 +23,15 @@ steps:
     feedsToUse: config
     nugetConfigPath: 'NuGet.config'
 
+- task: PowerShell@2
+  displayName: Set the name of the build (i.e. the Build.BuildNumber)
+  inputs:
+    targetType: 'inline'
+    script: |
+      [string] $buildName = "$(PackageVersion)_$(Build.SourceBranchName)"
+      Write-Host "Setting the name of the build to '$buildName'."
+      Write-Host "##vso[build.updatebuildnumber]$buildName"
+
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
