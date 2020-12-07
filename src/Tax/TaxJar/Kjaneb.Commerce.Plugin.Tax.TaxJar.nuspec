@@ -14,5 +14,12 @@
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
     <copyright>Copyright 2020</copyright>
     <tags>Sitecore ExperienceCommerce</tags>
+	<dependencies>
+      <group targetFramework="netcoreapp3.1">
+        <dependency id="Sitecore.Commerce.Core" version="6.0.92" />
+        <dependency id="TaxJar" version="3.3.1" />
+      </group>
+    </dependencies>
+    </dependencies>
   </metadata>
 </package>
