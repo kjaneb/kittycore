@@ -32,6 +32,15 @@ steps:
       Write-Host "Setting the name of the build to '$buildName'."
       Write-Host "##vso[build.updatebuildnumber]$buildName"
 
+- task: VersionDotNetCoreAssemblies@2
+  inputs:
+    Path: '$(Build.SourcesDirectory)'
+    VersionNumber: '$(PackageVersion).0'
+    Injectversion: False
+    VersionRegex: '\d+\.\d+\.\d+\.\d+'
+    FilenamePattern: '.csproj'
+    OutputVersion: 'OutputedVersion'
+
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
