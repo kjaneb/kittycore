@@ -36,7 +36,7 @@ steps:
   displayName: Version the assemblies
   inputs:
     Path: '$(Build.SourcesDirectory)'
-    VersionNumber: '$(versionNumber)'
+    VersionNumber: '$(PackageVersion)'
     InjectVersion: true
     FilenamePattern: 'AssemblyInfo.*'
     OutputVersion: 'OutputedVersion'
